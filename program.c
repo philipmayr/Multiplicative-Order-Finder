@@ -34,10 +34,7 @@ int find_multiplicative_order(int modulus, int base)
     
     for (int order = 1; order < modulus; order++)
     {
-        if (exponentiate_modularly(base, order, modulus) == 1)
-        {
-            return order;
-        }
+        if (exponentiate_modularly(base, order, modulus) == 1) return order;
     } 
 }
 
