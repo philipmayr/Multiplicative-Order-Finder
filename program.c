@@ -16,7 +16,7 @@ int exponentiate_modularly(int base, int index, int modulus)
     if (index == 1) return base;
     
     int residue = 1;
-            
+    
     while (index)
     {
         if (index & 1) residue = (residue * base) % modulus;
@@ -25,7 +25,7 @@ int exponentiate_modularly(int base, int index, int modulus)
         index >>= 1;
     }
     
-    return residue;    
+    return residue;
 }
 
 int find_multiplicative_order(int modulus, int base)
@@ -43,11 +43,11 @@ int main()
     for (;;)
     {
         printf("Enter an integer modulus: ");
-    
+        
         status = scanf("%d", & input);
         	
-    	while (status != 1)
-    	{
+        while (status != 1)
+        {
             while ((buffer = getchar()) != EOF && buffer != '\n');
             
             printf("Invalid input.");
@@ -55,16 +55,16 @@ int main()
             printf("Enter an integer modulus: ");
             
             status = scanf("%d", & input);
-    	}
-    	
-    	int modulus = input;
-    	
-    	printf("Enter an integer base: ");
-    	
-    	status = scanf("%d", & input);
+        }
+        
+        int modulus = input;
+        
+        printf("Enter an integer base: ");
+        
+        status = scanf("%d", & input);
         	
-    	while (status != 1)
-    	{
+        while (status != 1)
+        {
             while ((buffer = getchar()) != EOF && buffer != '\n');
             
             printf("Invalid input.");
@@ -72,9 +72,9 @@ int main()
             printf("Enter an integer base: ");
             
             status = scanf("%d", & input);
-    	}
-    	
-    	int base = input;
+        }
+        
+        int base = input;
         
         int multiplicative_order = find_multiplicative_order(modulus, base);
         
@@ -82,7 +82,7 @@ int main()
             printf("\nThe base is not coprime to the modulus.");
         else
             printf("\nThe multiplicative order of %d modulo %d is %d.", base, modulus, multiplicative_order);
-        
+            
         printf("\n\n");
     }
     
