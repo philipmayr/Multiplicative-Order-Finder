@@ -11,7 +11,7 @@ int exponentiate_modularly(int base, int index, int modulus)
 {
     if (base == 0) return 0;
     if (index == 0) return 1;
-
+    
     if (base > modulus) base %= modulus;
     if (index == 1) return base;
     
