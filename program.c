@@ -9,9 +9,9 @@ int find_greatest_common_divisor(int a, int b)
 
 int exponentiate_modularly(int base, int index, int modulus)
 {
-    if (modulus == 1) return 0;
     if (base == 0) return 0;
     if (index == 0) return 1;
+    if (modulus == 1) return 0;
     
     base %= modulus;
     
