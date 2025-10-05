@@ -2,12 +2,14 @@
 
 #include <stdio.h>
 
-int find_greatest_common_divisor(int a, int b)
+typedef unsigned long long integer;
+
+integer find_greatest_common_divisor(integer a, integer b)
 {
     return b ? find_greatest_common_divisor(b, a % b) : a;
 }
 
-int exponentiate_modularly(int base, int index, int modulus)
+integer exponentiate_modularly(integer base, integer index, integer modulus)
 {
     if (base == 0) return 0;
     if (index == 0) return 1;
@@ -15,20 +17,20 @@ int exponentiate_modularly(int base, int index, int modulus)
     
     base %= modulus;
     
-    int residue = 1;
+    integer modular_power = 1;
     
     while (index)
     {
-        if (index & 1) residue = (residue * base) % modulus;
+        if (index & 1) modular_power = (modular_power * base) % modulus;
         
         base = (base * base) % modulus;
         index >>= 1;
     }
     
-    return residue;
+    return modular_power;
 }
 
-int find_multiplicative_order(int modulus, int base)
+integer find_multiplicative_order(integer modulus, integer base)
 {
     if (find_greatest_common_divisor(modulus, base) != 1) return -1;
     
@@ -36,15 +38,15 @@ int find_multiplicative_order(int modulus, int base)
         if (exponentiate_modularly(base, order, modulus) == 1) return order;
 }
 
-int main()
+integer main()
 {
-    int input, status, buffer;
+    integer input, status, buffer;
     
     for (;;)
     {
         printf("Enter an integer modulus: ");
         
-        status = scanf("%d", & input);
+        status = scanf("%llu", & input);
         	
         while (status != 1)
         {
@@ -54,14 +56,14 @@ int main()
             printf("\n\n");
             printf("Enter an integer modulus: ");
             
-            status = scanf("%d", & input);
+            status = scanf("%llu", & input);
         }
         
-        int modulus = input;
+        integer modulus = input;
         
         printf("Enter an integer base: ");
         
-        status = scanf("%d", & input);
+        status = scanf("%llu", & input);
         	
         while (status != 1)
         {
@@ -71,17 +73,17 @@ int main()
             printf("\n\n");
             printf("Enter an integer base: ");
             
-            status = scanf("%d", & input);
+            status = scanf("%llu", & input);
         }
         
-        int base = input;
+        integer base = input;
         
-        int multiplicative_order = find_multiplicative_order(modulus, base);
+        integer multiplicative_order = find_multiplicative_order(modulus, base);
         
         if (multiplicative_order == -1)
             printf("\nThe base is not coprime to the modulus.");
         else
-            printf("\nThe multiplicative order of %d modulo %d is %d.", base, modulus, multiplicative_order);
+            printf("\nThe multiplicative order of %llu modulo %llu is %llu.", base, modulus, multiplicative_order);
             
         printf("\n\n");
     }
