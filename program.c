@@ -11,21 +11,16 @@ integer find_greatest_common_divisor(integer a, integer b)
 
 integer exponentiate_modularly(integer base, integer index, integer modulus)
 {
-    if (base == 0) return 0;
-    if (index == 0) return 1;
-    if (modulus == 1) return 0;
+    if (modulus == 0 || modulus == 1) return 0;
+    if (index == 0) return 1 % modulus;
     
     base %= modulus;
+    if (base == 0) return 0;
     
     integer modular_power = 1;
     
-    while (index)
-    {
+    for (; index; base = (base * base) % modulus, index >>= 1)
         if (index & 1) modular_power = (modular_power * base) % modulus;
-        
-        base = (base * base) % modulus;
-        index >>= 1;
-    }
     
     return modular_power;
 }
