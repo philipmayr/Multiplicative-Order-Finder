@@ -30,3 +30,5 @@ The multiplicative order of an integer 𝑎 modulo 𝑚 is the smallest positive
 <use x='142.624317' y='68.742217' xlink:href='#g3-41'/>
 </g>
 </svg>
+
+The main loop steps over values of 𝑏 one by one until one is found that satisfies the aforementioned congruence. 
