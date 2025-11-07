@@ -31,4 +31,4 @@ The multiplicative order of an integer 𝑎 modulo 𝑚 is the smallest positive
 </g>
 </svg>
 
-The main loop steps over values of 𝑏 one by ono until a value is found that satisfies the aforementioned congruence. The two helper functions are a GCD (Greatest Common Divisor) finder that uses the standard Euclidean algorithm and a right-to-left binary modular exponentiator.
+The main loop steps over values of 𝑏 one by one until a value is found that satisfies the aforementioned congruence. The two helper functions are a GCD (Greatest Common Divisor) finder that uses the standard Euclidean algorithm and a right-to-left binary modular exponentiator.
